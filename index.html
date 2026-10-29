@@ -68,13 +68,38 @@
       }
       .text-gradient {
         background: linear-gradient(135deg, #fff 20%, #94a3b8 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
       .hero-gradient {
         background: linear-gradient(135deg, #ef4444 0%, #f43f5e 50%, #fb7185 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+      }
+      #thumbnail-slider {
+        scrollbar-width: none;
+      }
+      #thumbnail-slider::-webkit-scrollbar {
+        display: none;
+      }
+      #thumbnail-slider > .group > div > span {
+        display: none;
+      }
+      #thumbnail-slider > .group img {
+        transition: transform 500ms ease, filter 300ms ease;
+      }
+      #thumbnail-slider > .group:hover img {
+        transform: scale(1.18);
+        filter: brightness(1.08);
+      }
+      #thumbnail-preview {
+        background: rgba(3, 7, 18, 0.9);
+      }
+      #thumbnail-preview img {
+        max-height: 85vh;
+        max-width: min(92vw, 1200px);
       }
     </style>
   </head>
@@ -307,8 +332,8 @@
         <!-- Thumbnail Gallery Grid using local Thumbnail folder -->
         <!-- Horizontal Sliding Bar Container -->
         <div class="relative w-full overflow-hidden">
-          <div id="thumbnail-slider" class="flex gap-6 overflow-x-auto pb-6 pt-2 px-2 scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-slate-900 snap-x snap-mandatory cursor-grab" style="scroll-behavior: smooth;">
-            
+          <div id="thumbnail-slider" class="flex gap-6 overflow-x-auto pb-6 pt-2 px-2 scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-slate-900 cursor-grab" aria-live="polite">
+
           <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
             <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
               <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
@@ -443,113 +468,16 @@
             </div>
           </div>
 
-
-          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
-            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
-              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-              <img src="Thumbnail/Screenshot 2026-10-18 095903.png" alt="YouTube Thumbnail 16" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#16</span>
-            </div>
-          </div>
-
-          </div>
-        </div>
+          </div>  </div>
       </div>
     </section>
 
-    <!-- Case Studies / Testimonial -->
-    <section id="case-studies" class="py-24 px-6 border-t border-slate-800/60 bg-dark">
-      <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Real Results, Real Growth</h2>
-        <p class="text-slate-400 max-w-xl mx-auto mb-16">See how we've helped creators transform their channels.</p>
-
-        <div class="p-10 sm:p-14 rounded-3xl glass-card border border-slate-800 relative overflow-hidden shadow-2xl max-w-3xl mx-auto text-left hover:border-red-500/40 transition-all duration-300">
-          <div class="absolute -top-12 -right-12 w-40 h-40 bg-red-600/15 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-500 text-white font-bold flex items-center justify-center text-xl shadow-lg shadow-red-600/30">AR</div>
-            <div>
-              <h4 class="text-white font-bold text-lg">Alex Rivera</h4>
-              <p class="text-sm text-slate-400">Tech Reviewer • TechGenius (150K Subscribers)</p>
-            </div>
-          </div>
-          <p class="text-slate-200 text-lg sm:text-xl italic leading-relaxed font-light">
-            "The team transformed my channel completely. The editing quality is cinema-level, and the automation tools saved me countless hours. My views increased by 400% in just 6 months!"
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="py-24 px-6 border-t border-slate-800/60 bg-gradient-to-b from-dark to-cardDark/50">
-      <div class="max-w-5xl mx-auto" data-aos="fade-up">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Process</h2>
-          <p class="text-slate-400 max-w-xl mx-auto">How It Works… A simple and smooth process to scale your YouTube automation channel.</p>
-        </div>
-
-        <div class="flex justify-center gap-4 mb-14">
-          <span class="px-6 py-3 rounded-full bg-red-600/10 border border-red-500/30 text-red-400 font-semibold text-sm shadow-xl flex items-center gap-2">
-            <i class="fa-solid fa-sparkles"></i> For Beginners (Starting From Scratch)
-          </span>
-        </div>
-
-        <div class="space-y-6">
-          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="100">
-            <div class="flex items-center gap-4 mb-3">
-              <span class="text-red-500 font-extrabold text-xl">🎯 01</span>
-              <h3 class="text-xl font-bold text-white">Profitable Niche Selection</h3>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">We research and select a profitable niche for your channel. Then we guide you step by step from setup to publishing.</p>
-            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
-          </div>
-
-          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="150">
-            <div class="flex items-center gap-4 mb-3">
-              <span class="text-red-500 font-extrabold text-xl">🎨 02</span>
-              <h3 class="text-xl font-bold text-white">Channel Setup & Branding</h3>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">We create your channel, branding, and basic setup so it looks professional from day one.</p>
-            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
-          </div>
-
-          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="200">
-            <div class="flex items-center gap-4 mb-3">
-              <span class="text-red-500 font-extrabold text-xl">📦 03</span>
-              <h3 class="text-xl font-bold text-white">Choose a Video Package</h3>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">After selecting a package from our pricing section or scheduling a call, you'll be connected with our team to share all the necessary details and specific requests for your video.</p>
-            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
-          </div>
-
-          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="250">
-            <div class="flex items-center gap-4 mb-3">
-              <span class="text-red-500 font-extrabold text-xl">🎬 04</span>
-              <h3 class="text-xl font-bold text-white">Video Production</h3>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">After we get a good understanding of your channel and video needs, our team will start right away. Your video, including the script writing, voiceover, editing and the thumbnail, will be ready in 60-72 hours tops.</p>
-            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
-          </div>
-
-          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="300">
-            <div class="flex items-center gap-4 mb-3">
-              <span class="text-red-500 font-extrabold text-xl">✅ 05</span>
-              <h3 class="text-xl font-bold text-white">Approval + Delivery</h3>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">After we finish your video, you can ask for any changes you want. We'll make sure you're completely happy with the final result before delivery!</p>
-            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
-          </div>
-
-          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="350">
-            <div class="flex items-center gap-4 mb-3">
-              <span class="text-red-500 font-extrabold text-xl">🚀 06</span>
-              <h3 class="text-xl font-bold text-white">Growth & Automation</h3>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">As we continue working together, the process becomes automated. You own the channel, we handle the work, and your channel grows consistently. Sit back and relax. We take care of everything while you focus on growth.</p>
-            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div id="thumbnail-preview" class="hidden fixed inset-0 z-[100] items-center justify-center p-6" role="dialog" aria-modal="true" aria-label="Thumbnail preview">
+      <button id="thumbnail-preview-close" type="button" class="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-red-600 text-white text-2xl transition-colors" aria-label="Close preview">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="thumbnail-preview-image" src="" alt="Expanded YouTube thumbnail" class="rounded-2xl shadow-2xl object-contain">
+    </div>
 
     <!-- Pricing Section -->
     <section id="pricing" class="py-24 px-6 border-t border-slate-800/60 bg-dark">
@@ -811,12 +739,20 @@
       // 2. Drop images into an local /images folder and list them automatically.
       console.log("YTAGENCY Google Drive linked: 1WBhNIVzFET3jy4YEGtjcfmmcxNAqA3YS");
 
-      // Auto-sliding thumbnail carousel with manual scroll support
+      // Dynamic thumbnail carousel with manual scroll support
       const slider = document.getElementById('thumbnail-slider');
       if (slider) {
+        const thumbnailPreview = document.getElementById('thumbnail-preview');
+        const thumbnailPreviewImage = document.getElementById('thumbnail-preview-image');
+        const thumbnailPreviewClose = document.getElementById('thumbnail-preview-close');
         let isDown = false;
         let startX;
         let scrollLeft;
+        let loopWidth = 0;
+        let animationFrame;
+        let lastFrameTime = 0;
+        const thumbnailFolder = 'Thumbnail/';
+        const imageExtensions = /\.(avif|gif|jpe?g|png|svg|webp)$/i;
 
         // Manual drag/touch support
         slider.addEventListener('mousedown', (e) => {
@@ -841,30 +777,136 @@
           slider.scrollLeft = scrollLeft - walk;
         });
 
-        // Auto-slide loop
-        let autoSlideInterval = setInterval(() => {
-          if (!isDown) {
-            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
-              slider.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-              slider.scrollBy({ left: 320, behavior: 'smooth' });
-            }
-          }
-        }, 3000);
+        const animateCarousel = (timestamp) => {
+          if (!lastFrameTime) lastFrameTime = timestamp;
+          const elapsed = timestamp - lastFrameTime;
+          lastFrameTime = timestamp;
 
-        // Pause auto-slide on hover
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        slider.addEventListener('mouseleave', () => {
-          autoSlideInterval = setInterval(() => {
-            if (!isDown) {
-              if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
-                slider.scrollTo({ left: 0, behavior: 'smooth' });
-              } else {
-                slider.scrollBy({ left: 320, behavior: 'smooth' });
-              }
-            }
-          }, 1000);
+          if (!isDown && !slider.matches(':hover') && loopWidth > 0) {
+            slider.scrollLeft += (elapsed / 1000) * 55;
+          }
+          animationFrame = requestAnimationFrame(animateCarousel);
+        };
+
+        const startAutoSlide = () => {
+          cancelAnimationFrame(animationFrame);
+          lastFrameTime = 0;
+          animationFrame = requestAnimationFrame(animateCarousel);
+        };
+
+        const createThumbnailCard = (src, index) => {
+          const card = document.createElement('div');
+          card.className = 'flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]';
+          card.innerHTML = `
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="${src}" alt="YouTube Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+          `;
+          bindImageError(card);
+          return card;
+        };
+
+        const bindImageError = (card) => {
+          const image = card.querySelector('img');
+          const removeIfBroken = () => {
+            if (image.naturalWidth === 0) card.remove();
+          };
+          image.addEventListener('error', removeIfBroken, { once: true });
+          if (image.complete) removeIfBroken();
+        };
+
+        const openThumbnailPreview = (event) => {
+          if (isDown || event.target.tagName !== 'IMG') return;
+          thumbnailPreviewImage.src = event.target.src;
+          thumbnailPreview.classList.remove('hidden');
+          thumbnailPreview.classList.add('flex');
+        };
+
+        const closeThumbnailPreview = () => {
+          thumbnailPreview.classList.add('hidden');
+          thumbnailPreview.classList.remove('flex');
+          thumbnailPreviewImage.src = '';
+        };
+
+        slider.addEventListener('click', openThumbnailPreview);
+        thumbnailPreviewClose.addEventListener('click', closeThumbnailPreview);
+        thumbnailPreview.addEventListener('click', (event) => {
+          if (event.target === thumbnailPreview) closeThumbnailPreview();
         });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeThumbnailPreview();
+        });
+
+        const removeBrokenThumbnails = () => {
+          slider.querySelectorAll('.group').forEach((card) => {
+            const image = card.querySelector('img');
+            if (image && image.complete && image.naturalWidth === 0) card.remove();
+          });
+        };
+
+        const makeCircular = () => {
+          slider.querySelectorAll('[data-thumbnail-copy]').forEach((card) => card.remove());
+          const originalCards = [...slider.querySelectorAll('.group')];
+          if (!originalCards.length) {
+            loopWidth = 0;
+            return;
+          }
+
+          originalCards.forEach((card) => {
+            const copy = card.cloneNode(true);
+            copy.dataset.thumbnailCopy = 'true';
+            slider.appendChild(copy);
+            bindImageError(copy);
+          });
+          loopWidth = slider.querySelector('[data-thumbnail-copy]').offsetLeft;
+        };
+
+        slider.addEventListener('scroll', () => {
+          if (loopWidth > 0 && slider.scrollLeft >= loopWidth) {
+            slider.scrollLeft -= loopWidth;
+          }
+        });
+
+        const readThumbnailFolder = async () => {
+          const response = await fetch(`${thumbnailFolder}?_=${Date.now()}`, { cache: 'no-store' });
+          if (!response.ok) throw new Error(`Thumbnail folder request failed: ${response.status}`);
+
+          const html = await response.text();
+          const documentFragment = new DOMParser().parseFromString(html, 'text/html');
+          return [...documentFragment.querySelectorAll('a[href]')]
+            .map((link) => new URL(link.getAttribute('href'), window.location.href).href)
+            .filter((src) => imageExtensions.test(src.split('?')[0]))
+            .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+        };
+
+        const refreshThumbnails = async () => {
+          try {
+            const thumbnailSources = await readThumbnailFolder();
+            const currentScroll = slider.scrollLeft;
+            slider.replaceChildren(...thumbnailSources.map(createThumbnailCard));
+            makeCircular();
+            if (loopWidth > 0) {
+              slider.scrollLeft = Math.max(0, Math.min(currentScroll % loopWidth, loopWidth - slider.clientWidth));
+            }
+          } catch (error) {
+            // A static host may not expose directory listings; valid existing cards remain visible.
+            removeBrokenThumbnails();
+            console.warn('Unable to refresh thumbnails from the Thumbnail folder.', error);
+          }
+        };
+
+        slider.querySelectorAll('.group').forEach(bindImageError);
+        removeBrokenThumbnails();
+        makeCircular();
+
+        // Keep the carousel alive while the folder is being refreshed.
+        startAutoSlide();
+        refreshThumbnails();
+        setInterval(refreshThumbnails, 5000);
+
+        // Pause while hovered, then resume when the pointer leaves.
+        slider.addEventListener('mouseleave', startAutoSlide);
       }
     </script>
   </body>
