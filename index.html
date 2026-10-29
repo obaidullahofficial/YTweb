@@ -305,58 +305,154 @@
         </div>
 
         <!-- Thumbnail Gallery Grid using local Thumbnail folder -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <!-- Thumbnail Item from Thumbnail/Screenshot (870).png -->
-          <div class="rounded-3xl glass-card border border-slate-800 overflow-hidden group shadow-2xl hover:border-red-500/50 transition-all duration-300 hover:scale-105">
-            <div class="h-64 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+        <!-- Horizontal Sliding Bar Container -->
+        <div class="relative w-full overflow-hidden">
+          <div id="thumbnail-slider" class="flex gap-6 overflow-x-auto pb-6 pt-2 px-2 scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-slate-900 snap-x snap-mandatory cursor-grab" style="scroll-behavior: smooth;">
+            
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
               <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-              <img src="Thumbnail/Screenshot (870).png" alt="Thumbnail Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-bold uppercase tracking-wider shadow-lg">Latest Design</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-white mb-2">High-CTR Custom Thumbnail</h3>
-              <p class="text-slate-400 text-sm mb-4">Crafted for maximum viewer engagement and superior click-through rate.</p>
-              <div class="flex items-center gap-2 text-red-400 text-sm font-semibold">
-                <span>Custom High-CTR Thumbnail</span> <i class="fa-solid fa-check text-xs"></i>
-              </div>
+              <img src="Thumbnail/Screenshot (859).png" alt="YouTube Thumbnail 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#1</span>
             </div>
           </div>
 
-          <!-- Thumbnail Item 2 -->
-          <div class="rounded-3xl glass-card border border-slate-800 overflow-hidden group shadow-2xl hover:border-red-500/50 transition-all duration-300 hover:scale-105">
-            <div class="h-64 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
               <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-              <img src="https://images.unsplash.com/photo-1626544827763-d516dce335e2?q=80&w=800&auto=format&fit=crop" alt="Thumbnail Design 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-bold uppercase tracking-wider shadow-lg">Tech Review</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-white mb-2">Tech & Gadget Thumbnail</h3>
-              <p class="text-slate-400 text-sm mb-4">Clean typography and high-contrast lighting designed to dominate the YouTube feed.</p>
-              <div class="flex items-center gap-2 text-red-400 text-sm font-semibold">
-                <span>Optimized Design</span> <i class="fa-solid fa-check text-xs"></i>
-              </div>
+              <img src="Thumbnail/Screenshot (860).png" alt="YouTube Thumbnail 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#2</span>
             </div>
           </div>
 
-          <!-- Thumbnail Item 3 -->
-          <div class="rounded-3xl glass-card border border-slate-800 overflow-hidden group shadow-2xl hover:border-red-500/50 transition-all duration-300 hover:scale-105">
-            <div class="h-64 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
               <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop" alt="Thumbnail Design 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-bold uppercase tracking-wider shadow-lg">Finance & Wealth</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-white mb-2">Finance & Business Thumbnail</h3>
-              <p class="text-slate-400 text-sm mb-4">Professional studio lighting and compelling curiosity gaps to drive massive retention.</p>
-              <div class="flex items-center gap-2 text-red-400 text-sm font-semibold">
-                <span>Optimized Design</span> <i class="fa-solid fa-check text-xs"></i>
-              </div>
+              <img src="Thumbnail/Screenshot (861).png" alt="YouTube Thumbnail 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#3</span>
             </div>
           </div>
-        </div>
 
-        <div class="text-center">
-          <p class="text-slate-400 text-sm">💡 Tip: Any image you drop into the <code class="text-red-400 bg-slate-900 px-2 py-1 rounded">Thumbnail/</code> folder will display right here!</p>
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (862).png" alt="YouTube Thumbnail 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#4</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (863).png" alt="YouTube Thumbnail 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#5</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (864).png" alt="YouTube Thumbnail 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#6</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (865).png" alt="YouTube Thumbnail 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#7</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (866).png" alt="YouTube Thumbnail 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#8</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (867).png" alt="YouTube Thumbnail 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#9</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (868).png" alt="YouTube Thumbnail 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#10</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (869).png" alt="YouTube Thumbnail 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#11</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (870).png" alt="YouTube Thumbnail 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#12</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (871).png" alt="YouTube Thumbnail 13" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#13</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot 2026-10-18 095025.png" alt="YouTube Thumbnail 14" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#14</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot 2026-10-18 095605.png" alt="YouTube Thumbnail 15" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#15</span>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 rounded-2xl glass-card border border-slate-800 overflow-hidden group shadow-xl hover:border-red-500/50 transition-all duration-300 hover:scale-[1.02]">
+            <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot 2026-10-18 095903.png" alt="YouTube Thumbnail 16" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 z-20 px-2.5 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">#16</span>
+            </div>
+          </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -714,6 +810,62 @@
       // 1. Set the folder to "Anyone with the link can view" and use Google Apps Script / RSS feed, OR
       // 2. Drop images into an local /images folder and list them automatically.
       console.log("YTAGENCY Google Drive linked: 1WBhNIVzFET3jy4YEGtjcfmmcxNAqA3YS");
+
+      // Auto-sliding thumbnail carousel with manual scroll support
+      const slider = document.getElementById('thumbnail-slider');
+      if (slider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        // Manual drag/touch support
+        slider.addEventListener('mousedown', (e) => {
+          isDown = true;
+          slider.classList.add('cursor-grabbing');
+          startX = e.pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+          isDown = false;
+          slider.classList.remove('cursor-grabbing');
+        });
+        slider.addEventListener('mouseup', () => {
+          isDown = false;
+          slider.classList.remove('cursor-grabbing');
+        });
+        slider.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slider.offsetLeft;
+          const walk = (x - startX) * 2; //scroll-fast
+          slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Auto-slide loop
+        let autoSlideInterval = setInterval(() => {
+          if (!isDown) {
+            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+              slider.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+              slider.scrollBy({ left: 320, behavior: 'smooth' });
+            }
+          }
+        }, 3000);
+
+        // Pause auto-slide on hover
+        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        slider.addEventListener('mouseleave', () => {
+          autoSlideInterval = setInterval(() => {
+            if (!isDown) {
+              if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+                slider.scrollTo({ left: 0, behavior: 'smooth' });
+              } else {
+                slider.scrollBy({ left: 320, behavior: 'smooth' });
+              }
+            }
+          }, 1000);
+        });
+      }
     </script>
   </body>
 </html>
