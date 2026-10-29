@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YTAGENCY — Elite YouTube Automation & Channel Scaling</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              dark: '#030712',
+              cardDark: '#0b0f19',
+              borderDark: '#1e293b',
+              accentRed: '#ef4444',
+              accentRose: '#f43f5e'
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shimmer': 'shimmer 2.5s linear infinite',
+              'glow': 'glow 3s ease-in-out infinite alternate'
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-12px)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-200% 0' },
+                '100%': { backgroundPosition: '200% 0' },
+              },
+              glow: {
+                '0%': { boxShadow: '0 0 20px rgba(239, 68, 68, 0.2)' },
+                '100%': { boxShadow: '0 0 45px rgba(239, 68, 68, 0.5)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .glass-card {
+        background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+      .glass-card:hover {
+        border-color: rgba(239, 68, 68, 0.4);
+        box-shadow: 0 12px 40px 0 rgba(239, 68, 68, 0.15);
+      }
+      .glow-red {
+        box-shadow: 0 0 60px -10px rgba(239, 68, 68, 0.35);
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #fff 20%, #94a3b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #ef4444 0%, #f43f5e 50%, #fb7185 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body class="bg-dark text-slate-100 antialiased selection:bg-red-500 selection:text-white overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark/75 backdrop-blur-2xl border-b border-slate-800/80 transition-all duration-300" id="navbar">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" class="text-xl font-extrabold tracking-tight flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-500 flex items-center justify-center text-white shadow-xl shadow-red-600/40 group-hover:scale-110 transition-transform duration-300">
+            <i class="fa-solid fa-play text-sm"></i>
+          </div>
+          <span class="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent text-lg">YT<span class="text-red-500">AGENCY</span></span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#services" class="hover:text-red-400 transition-all hover:scale-105">Services</a>
+          <a href="#work" class="hover:text-red-400 transition-all hover:scale-105">Our Work</a>
+          <a href="#case-studies" class="hover:text-red-400 transition-all hover:scale-105">Case Studies</a>
+          <a href="#process" class="hover:text-red-400 transition-all hover:scale-105">Process</a>
+          <a href="#pricing" class="hover:text-red-400 transition-all hover:scale-105">Pricing</a>
+          <a href="#faq" class="hover:text-red-400 transition-all hover:scale-105">FAQ</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-4">
+          <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold px-6 py-2.5 rounded-full text-sm transition-all shadow-lg shadow-red-600/35 hover:shadow-red-600/60 hover:-translate-y-0.5 duration-300 flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i> Book a Call
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none w-10 h-10 rounded-xl glass-card flex items-center justify-center">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Nav Modal -->
+      <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-slate-950/95 backdrop-blur-3xl border-b border-slate-800/80 px-6 py-6 flex flex-col gap-4 shadow-2xl transition-all duration-300">
+        <a href="#services" class="mobile-link text-slate-300 hover:text-red-400 text-base font-medium py-2 border-b border-slate-900">Services</a>
+        <a href="#work" class="mobile-link text-slate-300 hover:text-red-400 text-base font-medium py-2 border-b border-slate-900">Our Work</a>
+        <a href="#case-studies" class="mobile-link text-slate-300 hover:text-red-400 text-base font-medium py-2 border-b border-slate-900">Case Studies</a>
+        <a href="#process" class="mobile-link text-slate-300 hover:text-red-400 text-base font-medium py-2 border-b border-slate-900">Process</a>
+        <a href="#pricing" class="mobile-link text-slate-300 hover:text-red-400 text-base font-medium py-2 border-b border-slate-900">Pricing</a>
+        <a href="#faq" class="mobile-link text-slate-300 hover:text-red-400 text-base font-medium py-2">FAQ</a>
+        <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="mobile-link bg-gradient-to-r from-red-600 to-rose-600 text-white font-semibold py-3.5 rounded-2xl text-center flex items-center justify-center gap-2 mt-2 shadow-xl shadow-red-600/40">
+          <i class="fa-brands fa-whatsapp"></i> Book a Call
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-36 pb-20 px-6 relative overflow-hidden">
+      <!-- Dynamic Animated Glow Backgrounds -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-red-600/20 via-rose-600/15 to-purple-600/10 rounded-full blur-[160px] pointer-events-none animate-pulse-slow"></div>
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-red-500/10 rounded-full blur-[120px] pointer-events-none animate-float"></div>
+      <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-rose-600/10 rounded-full blur-[120px] pointer-events-none animate-float" style="animation-delay: 3s;"></div>
+
+      <div class="max-w-5xl mx-auto text-center relative z-10" data-aos="fade-up" data-aos-duration="1000">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-red-500/30 text-red-400 text-xs font-semibold uppercase tracking-wider mb-6 shadow-2xl hover:scale-105 transition-transform cursor-default">
+          <i class="fa-solid fa-fire text-red-500 animate-bounce"></i>
+          Trusted by 100+ Elite YouTubers in 2026
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.15]">
+          Scale Your <span class="hero-gradient">YouTube Channel</span> to New Heights
+        </h1>
+
+        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          Professional video editing, elite scripting, and end-to-end automation services designed to maximize watch time, CTR, and revenue.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+          <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold px-9 py-4 rounded-full transition-all duration-300 shadow-2xl shadow-red-600/40 hover:shadow-red-600/70 hover:-translate-y-1 flex items-center gap-3 text-base group">
+            <span>Start Scaling Now</span>
+            <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1.5 transition-transform"></i>
+          </a>
+          <a href="https://drive.google.com/drive/folders/1JnhCMppSMNmna59w5wNW0VsniaQDmWus?usp=sharing" target="_blank" rel="noopener noreferrer" class="glass-card hover:bg-slate-800/80 text-slate-200 border border-slate-700/80 font-semibold px-9 py-4 rounded-full transition-all duration-300 flex items-center gap-2.5 text-base hover:scale-105">
+            <i class="fa-solid fa-play text-red-500 text-sm"></i>
+            <span>Explore Portfolio</span>
+          </a>
+        </div>
+
+        <!-- Trust Stats Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto pt-8 border-t border-slate-800/80" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-6 rounded-3xl glass-card border border-slate-800/80 hover:border-red-500/40 transition-all hover:scale-105 duration-300">
+            <div class="text-3xl font-extrabold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mb-1">50M+</div>
+            <div class="text-sm text-slate-400">Views Generated</div>
+          </div>
+          <div class="p-6 rounded-3xl glass-card border border-slate-800/80 hover:border-red-500/40 transition-all hover:scale-105 duration-300">
+            <div class="text-3xl font-extrabold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mb-1">100+</div>
+            <div class="text-sm text-slate-400">Happy Creators</div>
+          </div>
+          <div class="p-6 rounded-3xl glass-card border border-slate-800/80 hover:border-red-500/40 transition-all hover:scale-105 duration-300">
+            <div class="text-3xl font-extrabold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mb-1">24/7</div>
+            <div class="text-sm text-slate-400">Dedicated Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us / Value Prop Highlights -->
+    <section class="py-24 px-6 border-t border-slate-800/60 bg-gradient-to-b from-dark to-cardDark/50 relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Why Top Creators Choose Us</h2>
+          <p class="text-slate-400 max-w-xl mx-auto">A systematic, data-driven approach built for modern YouTube growth.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">01</div>
+            <h3 class="text-lg font-bold text-white mb-3">Profitable Niches</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">We start with proven niches and ideas backed by deep research, not guesswork.</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">02</div>
+            <h3 class="text-lg font-bold text-white mb-3">High-Retention Content</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Scripts, pacing, and dynamic edits engineered to keep viewers hooked until the end.</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-12 h-12 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">03</div>
+            <h3 class="text-lg font-bold text-white mb-3">End-to-End Automation</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">From concept to upload-ready video files, we manage the entire production pipeline.</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-12 h-12 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">04</div>
+            <h3 class="text-lg font-bold text-white mb-3">Consistent Scaling</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Reliable publishing schedules and algorithmic optimization for long-term compounding growth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 border-t border-slate-800/60 bg-dark relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="text-xs font-semibold text-red-500 uppercase tracking-widest mb-2 block">Complete Ecosystem</span>
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">YouTube Automation Services: Step-by-Step</h2>
+          <p class="text-slate-400 max-w-xl mx-auto">From niche research to performance tracking—we handle every single detail.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">1. Niche Research</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Identification of profitable niches • Competitor & audience analysis</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="150">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">2. Content & Idea Research</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Viral topic discovery • High-CTR & high-retention content angles • Competitor breakdown • Evergreen + trending hybrid ideas</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">3. High-Retention Script Writing</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Engaging, story-driven scripts • Strong hooks and retention-focused structure • SEO-optimized and fact-checked writing</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="250">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-microphone-lines"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">4. Professional Voiceovers</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Studio-quality male & female voiceovers • US, UK, and Neutral accents available • Emotion-driven delivery for retention</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-video"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">5. Video Editing (Premium Quality)</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Fast-paced, engaging editing style • Stock footage and transitions • Background music & sound design • Optimized for watch time</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="350">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-image"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">6. Thumbnail Design (High CTR)</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Eye-catching, scroll-stopping designs • Strong emotions, bold text & clean layout • A/B tested hooks & visual psychology</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">7. YouTube SEO Optimization</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Keyword research & metadata optimization • Title, description & tag optimization • Audience targeting & ranking strategy</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="450">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">8. Growth Analysis & Tracking</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Monthly analytics reports • Competitor benchmarking • Content performance insights • Strategic growth recommendations</p>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="500">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-red-500/20">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">9. Channel Creation & Branding</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Complete YouTube channel setup • Professional logo & banner design • Branding guidelines • About section copywriting</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Work / Portfolio -->
+    <section id="work" class="py-24 px-6 border-t border-slate-800/60 bg-gradient-to-b from-dark to-cardDark/50">
+      <div class="max-w-7xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Some of Our Work!!</h2>
+          <p class="text-slate-400 max-w-xl mx-auto">Take a look at some of our premium quality thumbnail designs from our Thumbnail folder!</p>
+        </div>
+
+        <!-- Thumbnail Gallery Grid using local Thumbnail folder -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <!-- Thumbnail Item from Thumbnail/Screenshot (870).png -->
+          <div class="rounded-3xl glass-card border border-slate-800 overflow-hidden group shadow-2xl hover:border-red-500/50 transition-all duration-300 hover:scale-105">
+            <div class="h-64 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="Thumbnail/Screenshot (870).png" alt="Thumbnail Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-bold uppercase tracking-wider shadow-lg">Latest Design</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-white mb-2">High-CTR Custom Thumbnail</h3>
+              <p class="text-slate-400 text-sm mb-4">Crafted for maximum viewer engagement and superior click-through rate.</p>
+              <div class="flex items-center gap-2 text-red-400 text-sm font-semibold">
+                <span>Custom High-CTR Thumbnail</span> <i class="fa-solid fa-check text-xs"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thumbnail Item 2 -->
+          <div class="rounded-3xl glass-card border border-slate-800 overflow-hidden group shadow-2xl hover:border-red-500/50 transition-all duration-300 hover:scale-105">
+            <div class="h-64 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="https://images.unsplash.com/photo-1626544827763-d516dce335e2?q=80&w=800&auto=format&fit=crop" alt="Thumbnail Design 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-bold uppercase tracking-wider shadow-lg">Tech Review</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-white mb-2">Tech & Gadget Thumbnail</h3>
+              <p class="text-slate-400 text-sm mb-4">Clean typography and high-contrast lighting designed to dominate the YouTube feed.</p>
+              <div class="flex items-center gap-2 text-red-400 text-sm font-semibold">
+                <span>Optimized Design</span> <i class="fa-solid fa-check text-xs"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thumbnail Item 3 -->
+          <div class="rounded-3xl glass-card border border-slate-800 overflow-hidden group shadow-2xl hover:border-red-500/50 transition-all duration-300 hover:scale-105">
+            <div class="h-64 bg-slate-900 relative overflow-hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop" alt="Thumbnail Design 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-bold uppercase tracking-wider shadow-lg">Finance & Wealth</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-white mb-2">Finance & Business Thumbnail</h3>
+              <p class="text-slate-400 text-sm mb-4">Professional studio lighting and compelling curiosity gaps to drive massive retention.</p>
+              <div class="flex items-center gap-2 text-red-400 text-sm font-semibold">
+                <span>Optimized Design</span> <i class="fa-solid fa-check text-xs"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p class="text-slate-400 text-sm">💡 Tip: Any image you drop into the <code class="text-red-400 bg-slate-900 px-2 py-1 rounded">Thumbnail/</code> folder will display right here!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies / Testimonial -->
+    <section id="case-studies" class="py-24 px-6 border-t border-slate-800/60 bg-dark">
+      <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Real Results, Real Growth</h2>
+        <p class="text-slate-400 max-w-xl mx-auto mb-16">See how we've helped creators transform their channels.</p>
+
+        <div class="p-10 sm:p-14 rounded-3xl glass-card border border-slate-800 relative overflow-hidden shadow-2xl max-w-3xl mx-auto text-left hover:border-red-500/40 transition-all duration-300">
+          <div class="absolute -top-12 -right-12 w-40 h-40 bg-red-600/15 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-500 text-white font-bold flex items-center justify-center text-xl shadow-lg shadow-red-600/30">AR</div>
+            <div>
+              <h4 class="text-white font-bold text-lg">Alex Rivera</h4>
+              <p class="text-sm text-slate-400">Tech Reviewer • TechGenius (150K Subscribers)</p>
+            </div>
+          </div>
+          <p class="text-slate-200 text-lg sm:text-xl italic leading-relaxed font-light">
+            "The team transformed my channel completely. The editing quality is cinema-level, and the automation tools saved me countless hours. My views increased by 400% in just 6 months!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 px-6 border-t border-slate-800/60 bg-gradient-to-b from-dark to-cardDark/50">
+      <div class="max-w-5xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Process</h2>
+          <p class="text-slate-400 max-w-xl mx-auto">How It Works… A simple and smooth process to scale your YouTube automation channel.</p>
+        </div>
+
+        <div class="flex justify-center gap-4 mb-14">
+          <span class="px-6 py-3 rounded-full bg-red-600/10 border border-red-500/30 text-red-400 font-semibold text-sm shadow-xl flex items-center gap-2">
+            <i class="fa-solid fa-sparkles"></i> For Beginners (Starting From Scratch)
+          </span>
+        </div>
+
+        <div class="space-y-6">
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="text-red-500 font-extrabold text-xl">🎯 01</span>
+              <h3 class="text-xl font-bold text-white">Profitable Niche Selection</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">We research and select a profitable niche for your channel. Then we guide you step by step from setup to publishing.</p>
+            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="150">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="text-red-500 font-extrabold text-xl">🎨 02</span>
+              <h3 class="text-xl font-bold text-white">Channel Setup & Branding</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">We create your channel, branding, and basic setup so it looks professional from day one.</p>
+            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="text-red-500 font-extrabold text-xl">📦 03</span>
+              <h3 class="text-xl font-bold text-white">Choose a Video Package</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">After selecting a package from our pricing section or scheduling a call, you'll be connected with our team to share all the necessary details and specific requests for your video.</p>
+            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="250">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="text-red-500 font-extrabold text-xl">🎬 04</span>
+              <h3 class="text-xl font-bold text-white">Video Production</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">After we get a good understanding of your channel and video needs, our team will start right away. Your video, including the script writing, voiceover, editing and the thumbnail, will be ready in 60-72 hours tops.</p>
+            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="text-red-500 font-extrabold text-xl">✅ 05</span>
+              <h3 class="text-xl font-bold text-white">Approval + Delivery</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">After we finish your video, you can ask for any changes you want. We'll make sure you're completely happy with the final result before delivery!</p>
+            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
+          </div>
+
+          <div class="p-8 rounded-3xl glass-card border border-slate-800 hover:border-red-500/40 transition-all duration-300 hover:translate-x-1" data-aos="fade-up" data-aos-delay="350">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="text-red-500 font-extrabold text-xl">🚀 06</span>
+              <h3 class="text-xl font-bold text-white">Growth & Automation</h3>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">As we continue working together, the process becomes automated. You own the channel, we handle the work, and your channel grows consistently. Sit back and relax. We take care of everything while you focus on growth.</p>
+            <a href="#pricing" class="text-red-400 text-sm font-semibold hover:text-red-300 transition-colors inline-flex items-center gap-1">Learn more &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-6 border-t border-slate-800/60 bg-dark">
+      <div class="max-w-7xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Professional Video Packages</h2>
+          <p class="text-slate-400 max-w-xl mx-auto">Choose the package that fits your content needs. All packages include high-quality production and unlimited revisions.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Package 1 -->
+          <div class="rounded-3xl glass-card border border-slate-800 p-8 flex flex-col justify-between hover:border-red-500/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+            <div>
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">STARTER PACKAGE</span>
+              <p class="text-xs text-slate-400 mt-1">Ideal for beginners</p>
+              <div class="mt-6 mb-6">
+                <span class="text-lg text-slate-500 line-through mr-2">$110</span>
+                <span class="text-4xl font-extrabold text-white">$99</span>
+                <p class="text-xs text-red-400 mt-2 font-medium">Limited Time – More Than 10% Discount Included</p>
+              </div>
+              <ul class="space-y-3.5 text-sm text-slate-300 mb-8">
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Profitable Niche Research</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Channel Setup (Logo, Banner)</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> 1 Best Quality Video (10-15 Mins)</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> High-quality thumbnail</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-red-600 text-white font-semibold text-center transition-all shadow-lg duration-300">
+              Get Started
+            </a>
+          </div>
+
+          <!-- Package 2 -->
+          <div class="rounded-3xl glass-card border border-slate-800 p-8 flex flex-col justify-between hover:border-red-500/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+            <div>
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Per Video</span>
+              <p class="text-xs text-slate-400 mt-1">Pay per video - perfect for testing</p>
+              <div class="mt-6 mb-6">
+                <span class="text-lg text-slate-500 line-through mr-2">$60</span>
+                <span class="text-4xl font-extrabold text-white">$50</span>
+                <p class="text-xs text-red-400 mt-2 font-medium">Limited Time – More Than 10% Discount Included</p>
+              </div>
+              <ul class="space-y-3.5 text-sm text-slate-300 mb-8">
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> 10-15 min professional video</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Custom-written tailored script</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Professional voiceover narration</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> High-quality custom thumbnail</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Unlimited revisions</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-red-600 text-white font-semibold text-center transition-all shadow-lg duration-300">
+              Get Started
+            </a>
+          </div>
+
+          <!-- Package 3 (Featured) -->
+          <div class="rounded-3xl glass-card border-2 border-red-500 p-8 flex flex-col justify-between relative shadow-2xl shadow-red-600/30 glow-red hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-600 to-rose-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-lg">
+              Most Popular
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-red-400 uppercase tracking-wider">10 Videos</span>
+              <p class="text-xs text-slate-400 mt-1">Step up your content game</p>
+              <div class="mt-6 mb-6">
+                <span class="text-lg text-slate-500 line-through mr-2">$600</span>
+                <span class="text-4xl font-extrabold text-white">$500</span>
+                <p class="text-xs text-red-400 mt-2 font-medium">Limited Time – More Than 10% Discount Included</p>
+              </div>
+              <ul class="space-y-3.5 text-sm text-slate-300 mb-8">
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> 10 high-quality videos</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Duration 10-15 minutes</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Premium scripts & voice overs</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Advanced video editing & CTR thumbnails</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> SEO services & Unlimited Revisions</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold text-center transition-all shadow-xl shadow-red-600/40 duration-300">
+              Get Started
+            </a>
+          </div>
+
+          <!-- Package 4 -->
+          <div class="rounded-3xl glass-card border border-slate-800 p-8 flex flex-col justify-between relative hover:border-red-500/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="400">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-slate-800 text-slate-200 text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full border border-slate-700 shadow-md">
+              Recommended
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">15 Videos</span>
+              <p class="text-xs text-slate-400 mt-1">Monthly solution for growth</p>
+              <div class="mt-6 mb-6">
+                <span class="text-lg text-slate-500 line-through mr-2">$900</span>
+                <span class="text-4xl font-extrabold text-white">$700</span>
+                <p class="text-xs text-red-400 mt-2 font-medium">Limited Time – More Than 10% Discount Included</p>
+              </div>
+              <ul class="space-y-3.5 text-sm text-slate-300 mb-8">
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> 15 high-quality videos</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Duration 10-15 minutes</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Premium scripts & voice overs</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Advanced video editing & CTR thumbnails</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> SEO services & Unlimited Revisions</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl bg-slate-800 hover:bg-red-600 text-white font-semibold text-center transition-all shadow-lg duration-300">
+              Get Started
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 text-slate-400 text-sm" data-aos="fade-up">
+          Need a custom plan? Let's talk about your specific requirements. <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="text-red-400 font-semibold hover:underline">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-6 border-t border-slate-800/60 bg-gradient-to-b from-dark to-cardDark/50">
+      <div class="max-w-4xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">Frequently Asked Questions</h2>
+          <p class="text-slate-400 max-w-xl mx-auto">Have a different question?</p>
+        </div>
+
+        <div class="space-y-4 mb-12">
+          <details class="group p-6 rounded-3xl glass-card border border-slate-800 cursor-pointer transition-all duration-300 hover:border-red-500/40">
+            <summary class="flex items-center justify-between font-bold text-white text-lg select-none">
+              <span>How long does it take for an entire video to get made?</span>
+              <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform duration-300"></i>
+            </summary>
+            <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+              We guarantee your video fully edited, with a thumbnail, ready to go, all within a max period of 60-72 hours.
+            </p>
+          </details>
+
+          <details class="group p-6 rounded-3xl glass-card border border-slate-800 cursor-pointer transition-all duration-300 hover:border-red-500/40">
+            <summary class="flex items-center justify-between font-bold text-white text-lg select-none">
+              <span>Is there a trial period available to test the service before committing?</span>
+              <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform duration-300"></i>
+            </summary>
+            <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+              Absolutely! You can order a customizable sample video for FREE! This will be completely risk free, no commitment is required. The free sample will allow you to witness the impact of our automation services on your channel firsthand.
+            </p>
+          </details>
+
+          <details class="group p-6 rounded-3xl glass-card border border-slate-800 cursor-pointer transition-all duration-300 hover:border-red-500/40">
+            <summary class="flex items-center justify-between font-bold text-white text-lg select-none">
+              <span>Who owns the videos created through your automation services, and what is the liability in terms of compliance with YouTube policies?</span>
+              <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform duration-300"></i>
+            </summary>
+            <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+              You own 100% of the rights to all videos and assets created for your channel. All content is carefully produced to comply fully with YouTube's monetization and community guidelines.
+            </p>
+          </details>
+        </div>
+
+        <div class="text-center">
+          <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="inline-block px-9 py-4 rounded-full bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold transition-all duration-300 shadow-xl shadow-red-600/30 hover:scale-105">
+            Get Started
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-slate-800/80 bg-dark text-slate-400 text-sm">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white font-bold shadow-lg shadow-red-600/30">
+              <i class="fa-solid fa-play text-xs"></i>
+            </div>
+            <span class="text-white font-extrabold text-lg">YTAGENCY</span>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Professional YouTube services to scale your channel and maximize growth.
+          </p>
+          <p class="text-white font-medium text-xs">Leoytautomation@gmail.com</p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Services</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#services" class="hover:text-white transition-colors">Video Editing</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Automation</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Voiceover</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Scripts</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Thumbnails</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">SEO</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Company</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#work" class="hover:text-white transition-colors">About</a></li>
+            <li><a href="#case-studies" class="hover:text-white transition-colors">Case Studies</a></li>
+            <li><a href="#work" class="hover:text-white transition-colors">Our Work</a></li>
+            <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Resources & Contact</h4>
+          <ul class="space-y-2.5 text-sm mb-6">
+            <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">Contact</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          </ul>
+          <a href="https://wa.me/923197747440" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2.5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold rounded-xl text-xs transition-all shadow-lg shadow-red-600/20">
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto mt-14 pt-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
+        <p>&copy; 2026 YTAGENCY. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 50
+      });
+
+      // Mobile Menu Toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 20) {
+          navbar.classList.add('bg-dark/90', 'shadow-xl', 'border-slate-800');
+        } else {
+          navbar.classList.remove('bg-dark/90', 'shadow-xl', 'border-slate-800');
+        }
+      });
+
+      // Google Drive Folder Embed / API Sync Notice
+      // Google Drive folder id: 1WBhNIVzFET3jy4YEGtjcfmmcxNAqA3YS
+      // Note: Due to Google Drive's CORS security restrictions on raw folder contents listing without a backend API key,
+      // users can either:
+      // 1. Set the folder to "Anyone with the link can view" and use Google Apps Script / RSS feed, OR
+      // 2. Drop images into an local /images folder and list them automatically.
+      console.log("YTAGENCY Google Drive linked: 1WBhNIVzFET3jy4YEGtjcfmmcxNAqA3YS");
+    </script>
+  </body>
+</html>
